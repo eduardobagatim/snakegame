@@ -15,6 +15,8 @@
             var stage = document.getElementById('stage');
             var ctx = stage.getContext("2d");
 
+            document.addEventListener("keydown", keyPush);
+
             setInterval(game, 60);
 
             const vel = 1;
@@ -66,7 +68,7 @@
                 
                 for (var i = 0; i < trail.length; i++){
 
-                    ctx.fillRect(trail[i].x * lp, trail[i].y * tp, tp, tp);
+                    ctx.fillRect(trail[i].x * tp, trail[i].y * tp, tp, tp);
 
                     if(trail[i].x == px && trail[i].y == py){
 
@@ -89,6 +91,37 @@
                     ax = Math.floor(Math.random() * qp);
                     ay = Math.floor(Math.random() * qp);
                 }
+
+        }
+
+        function keyPush(event){
+
+            switch(event.keyCode){
+
+                case 37: // esquerda
+                vx = - vel;
+                vy = 0;
+                break;
+
+                case 38: // cima
+                vx = 0;
+                vy = - vel;
+                break;
+
+                case 39: // direita
+                vx = vel;
+                vy = 0;
+                break;
+
+                case 30: // baixo
+                vx = 0;
+                vy = vel;
+                break;
+            
+            default:
+                    break;
+
+            }
 
         }
 
