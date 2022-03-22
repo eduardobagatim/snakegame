@@ -5,7 +5,7 @@
 </head>
 <body>
     
-    <canvas> id="stage" width="400" height"400"></canvas>
+    <canvas id="stage" width="600" height="600"></canvas>
 
     <script>type="text/javascript"
     
@@ -17,14 +17,14 @@
 
             document.addEventListener("keydown", keyPush);
 
-            setInterval(game, 60);
+            setInterval(game, 80);
 
             const vel = 1;
 
             var vx = vy = 0;
             var px = 10;
             var py = 15;
-            var tp = 20;
+            var tp = 30;
             var qp = 20;
             var ax = ay = 15;
 
@@ -68,11 +68,12 @@
                 
                 for (var i = 0; i < trail.length; i++){
 
-                    ctx.fillRect(trail[i].x * tp, trail[i].y * tp, tp, tp);
+                    ctx.fillRect(trail[i].x * tp, trail[i].y * tp, tp -1 , tp - 1);
 
                     if(trail[i].x == px && trail[i].y == py){
 
                         vx = vy = 0;
+                        tail = 5;
 
                     }
 
@@ -113,7 +114,7 @@
                 vy = 0;
                 break;
 
-                case 30: // baixo
+                case 40: // baixo
                 vx = 0;
                 vy = vel;
                 break;
